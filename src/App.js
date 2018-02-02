@@ -1,18 +1,39 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from 'material-ui/Button';
+import Snackbar from 'material-ui/Snackbar';
 
 class App extends Component {
+  state = {
+    open: false
+  };
+
+  createOffer = () => {
+    this.setState({ open: true});
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
   render() {
+    const { open } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Button raised color="primary"
+                onClick={this.createOffer}>
+          Create offer
+        </Button>
+        <Snackbar
+          anchorOrigin={{vertical: 'bottom', horizontal: 'center' }}
+          autoHideDuration={3000}
+          open={open}
+          onClose={this.handleClose}
+          SnackbarContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Offer successfully created </span>}
+        />
       </div>
     );
   }
