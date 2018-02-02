@@ -8,6 +8,7 @@ class App extends Component {
   state = {
     open: false,
     pickupLocation: '',
+    deliveryLocation: ''
   };
 
   handleChange = name => event => {
@@ -17,7 +18,6 @@ class App extends Component {
   };
 
   createOffer = () => {
-    console.log(this.state.pickupLocation);
     this.setState({open: true});
   };
 
@@ -28,16 +28,26 @@ class App extends Component {
   render() {
     const {open} = this.state;
     return (
-
       <div className="App">
         <form noValidate autoComplete="off">
-          <TextField
-            id="pickupLocation"
-            label="Pickup Location"
-            value={this.state.pickupLocation}
-            onChange={this.handleChange('pickupLocation')}
-            margin="normal"
-          />
+          <div>
+            <TextField
+              id="pickupLocation"
+              label="Pickup Location"
+              value={this.state.pickupLocation}
+              onChange={this.handleChange('pickupLocation')}
+              margin="normal"
+            />
+          </div>
+          <div>
+            <TextField
+              id="deliveryLocation"
+              label="Delivery Location"
+              value={this.state.deliveryLocation}
+              onChange={this.handleChange('deliveryLocation')}
+              margin="normal"
+            />
+          </div>
         </form>
         <Button raised color="primary"
                 onClick={this.createOffer}>
