@@ -40,7 +40,7 @@ class Chat extends Component {
             id: 'actions',
             options: [
               {value: 'OFFER', label: 'I need shipping', trigger: 'create_offer'},
-              {value: 'DELIVER', label: 'I\'m about to deliver items', trigger: 'delivery'},
+              {value: 'DELIVER', label: 'I\'m starting my route', trigger: 'delivery'},
               {value: 'RECEIVED', label: 'I have received my delivery', trigger: 'pick_item'},
             ],
           },
@@ -62,9 +62,15 @@ class Chat extends Component {
           {
             id: 'shipping_items',
             options: [
-              {value: 'item_a', label: '30 breaks from Leonberg to Vaihingen', trigger: '2'},
-              {value: 'item_b', label: '1 Pizza from Vaihingen to Heslach', trigger: '2'}
+              {value: '30 tires', label: '30 tires from Leonberg to Vaihingen - 20km detour, earnings 60col', trigger: 'accepted'},
+              {value: '1 pizza', label: '1 Pizza from Vaihingen to Heslach - 3km detour, earnings 1col', trigger: 'accepted'}
             ],
+          },
+          {
+            id: 'accepted',
+            message: 'Awesome. Please pick up {previousValue} at Maybachstraße 5, 71229 Leonberg and transport them to ' +
+            'Industriestraße 8, 70565 Vaihingen',
+            end: true
           },
           {
             id: 'create_offer',
@@ -118,7 +124,7 @@ class Chat extends Component {
           },
           {
             id: 'offer_created',
-            message: 'Great. offer was created',
+            message: 'Great. Your offer was added to the ledger',
             end: true
           },
           {
@@ -129,8 +135,8 @@ class Chat extends Component {
           {
             id: '2a',
             options: [
-              {value: 'item_a', label: 'Got the 30 breaks', trigger: '3'},
-              {value: 'item_b', label: 'The car', trigger: '3'},
+              {value: 'item_a', label: 'The 30 tires', trigger: '3'},
+              {value: 'item_b', label: 'A pepperoni pizza', trigger: '3'},
             ],
           },
           {
