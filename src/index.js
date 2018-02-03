@@ -5,9 +5,10 @@ import Main from './main';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter} from "react-router-dom";
 
+
 ReactDOM.render((
-    <BrowserRouter>
-        <Main />
-    </BrowserRouter>
+  <BrowserRouter>
+    <Main/>
+  </BrowserRouter>
 ), document.getElementById('root'));
 registerServiceWorker();
