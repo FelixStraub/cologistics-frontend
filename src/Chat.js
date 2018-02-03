@@ -11,17 +11,18 @@ class Chat extends Component {
     const CREATOR_ID = "ID0";
     const CARRIER_ID = "ID1";
     if (values[0] === 'OFFER') { // always done by ID0
-      const res = await hlService.createShipment(CREATOR_ID, CREATOR_ID, "ID4", "Stuttgart", "60", "Leonberg", values[1]);
+      const res = await hlService.createShipment(CREATOR_ID, CREATOR_ID, "ID2", "Stuttgart", "60", "Leonberg", values[1]);
       const r = await res.json();
       localStorage.setItem(SHIPMENT_ID_KEY, JSON.parse(r.data).id)
 
     } else if (values[0] === 'DELIVER') { // accepting the delivery contract, always done by ID1
       const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), CARRIER_ID, "Accepted", "");
       const r = await res.json();
+      console.log(r);
     } else { // mark delivery as received, always done by ID0
       const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), CREATOR_ID, "Approved", "");
       const r = await res.json();
-      console.log(r)
+      console.log(r);
     }
     console.log(values);
   }

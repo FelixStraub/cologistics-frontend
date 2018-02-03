@@ -19,7 +19,6 @@ const style = {
 
 class App extends Component {
 
-
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -50,7 +49,7 @@ class App extends Component {
       }).then(r => {
         this.setState({currentBalance: r.balance});
       })
-    }, 1000)
+    }, 5000)
   }
 
   constructor(props) {
