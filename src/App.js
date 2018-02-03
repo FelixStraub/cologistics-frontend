@@ -66,6 +66,14 @@ class App extends Component {
 
   render() {
     const currentUser = "ID" + this.props.match.params.id;
+    let name = '';
+    if (currentUser === "ID0") {
+      name = 'Alice';
+    } else if (currentUser === "ID1") {
+      name = 'Bob';
+    } else {
+      name = 'Charlie';
+    }
     const {open} = this.state;
     return (
       <div className="App">
@@ -79,10 +87,12 @@ class App extends Component {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Wallet balance={this.state.currentBalance}/>
+        <Wallet balance={this.state.currentBalance}
+                currentUserId={currentUser}/>
         <ThemeProvider theme={this.theme}>
           <Chat userAvatar={userAvatar}
-                name={'Jeff'} currentUserId={currentUser}/>
+                name={name}
+                currentUserId={currentUser}/>
         </ThemeProvider>
         <Snackbar
           anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
