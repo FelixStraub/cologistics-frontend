@@ -11,6 +11,8 @@ import {ThemeProvider} from 'styled-components';
 import CreateOffer from "./CreateOffer";
 
 
+var userAvatar = require('./assets/user.svg');
+
 class App extends Component {
   state = {
     open: false,
@@ -87,13 +89,13 @@ class App extends Component {
               <MenuIcon/>
             </IconButton>
             <Typography type="title" color="inherit">
-              Create Offer
+              Cologistics
             </Typography>
           </Toolbar>
         </AppBar>
         <Wallet/>
         <ThemeProvider theme={this.theme}>
-          <CreateOffer/>
+          <CreateOffer userAvatar={userAvatar}/>
         </ThemeProvider>
         <Snackbar
           anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}

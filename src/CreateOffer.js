@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ChatBot from 'react-simple-chatbot';
 
-var userAvatar = require('./assets/user.svg');
 
 class CreateOffer extends Component {
   handleEnd({steps, values}) {
@@ -22,7 +21,7 @@ class CreateOffer extends Component {
         hideHeader={true}
         userDelay={500}
         handleEnd={this.handleEnd}
-        userAvatar={userAvatar}
+        userAvatar={this.props.userAvatar}
         recognitionEnable={true}
         steps={[
           {
