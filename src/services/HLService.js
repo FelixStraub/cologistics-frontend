@@ -24,6 +24,10 @@ export default class HLService {
     return this.makeInvokeRequest(this.buildDataForFcn("createShipment", shipment.asArray()))
   }
 
+  async updateStatus(shipmentId, carrier, status, space) {
+    return this.makeInvokeRequest("updateStatus", [shipmentId, carrier, status, space])
+  }
+
   buildDataForFcn(functionName, args) {
     return {
       "chaincodeId": this.chaincodeId,

@@ -11,10 +11,15 @@ class Chat extends Component {
       const hlService = new HLService();
       console.log(values);
       const res = await hlService.createShipment(creatorId, "ID1", "Peter", "asdfasdfasdf", "Stuttgart", "Leonberg");
-      console.log(res);
+      const r = await res.json();
+      localStorage.setItem("shipmentId", JSON.parse(r.data).id)
 
     } else if (values[0] === 'DELIVER') {
-      console.log('delivery')
+      console.log('delivery');
+      const hlService = new HLService();
+      const res = await hlService.updateStatus(localStorage.getItem("shipmentId"), "ID2", "");
+      const r = await res.json();
+      console.log(r);
     } else {
       console.log('marked receivedc')
     }
