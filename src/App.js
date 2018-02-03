@@ -50,7 +50,7 @@ class App extends Component {
       }).then(r => {
         this.setState({currentBalance: r.balance});
       })
-    }, 5000)
+    }, 1000)
   }
 
   constructor(props) {

@@ -1,6 +1,6 @@
 export default class HLService {
 
-  chaincodeId = "0f64cfefa65b1e87142707d14220eff6";
+  chaincodeId = "76b18e5b1534ea5d7979c62ef5f6780d";
   headers = {
     'apikey': 'XdNa4CgwYYgnoW95uBW38jQOIlSwOCRVtiMoA5HIPsZmtj1p6TA8JStkJ0Kc75CMSYScjFoUaCpo94Y8oXGo4UXN24i3G3QBX2xp8xBUop1HcB78FQg8urrhr73KKDGknGJhp2t5YxdMzwCUx5LmsEkmN3aPZB5yioxRv3qQuDPKaliTaXKeBaKW38D2mCLteKxd39vUYRquTa7J86vu0d7DZOHnoeVOdIfhlW8jiKgB6EEfjLoA5WR517lpL5y356ZqrnwPhdsK1rWnxwExrwux4RE7u7Tlr8D2DXbvsCobt115P4tXcRcpDBvHPLe3J7zJv56Et4sshi4OJVWEppUxhRGgN2TyFOa24qLVAe3USI91kJuaEQ8jq8NWeZlHIeUaPAihtkoxpyW4pjspQbrdpDkmqK4GuIAjtiw51oBPeQHde6WpiT1xjIFezltNJgGPNSdh7SA6Jrht0NojBAAbi0osd0xQblKLFNQOdh40BjhTwuFL66N6IYOhOoOz',
     "content-type": "application/json",
@@ -25,7 +25,7 @@ export default class HLService {
   }
 
   async updateStatus(shipmentId, carrier, status, space) {
-    return this.makeInvokeRequest(this.buildDataForFcn("updateStatus", [shipmentId, carrier, status, space]));
+    return this.makeInvokeRequest(this.buildDataForFcn("updateStatus", [shipmentId, status, carrier, space]));
   }
 
   buildDataForFcn(functionName, args) {
@@ -51,7 +51,6 @@ export default class HLService {
       body: JSON.stringify(data),
       headers: this.headers
     });
-
   }
 
   async makeQueryRequest(data) {
@@ -65,17 +64,17 @@ export default class HLService {
 }
 
 export class Shipment {
-  creatorId = "1";
-  carrier = "2";
-  recipient = "3";
-  retailer = "4";
-  price = "5";
-  pickupLocation = "6";
-  destination = "7";
-  contentList = "8";
-  space = "9";
-  startPoint = "10";
-  endPoint = "11";
+  creatorId = "";
+  carrier = "";
+  recipient = "";
+  retailer = "";
+  price = "";
+  pickupLocation = "";
+  destination = "";
+  contentList = "";
+  space = "";
+  startPoint = "";
+  endPoint = "";
 
   asArray() {
     return [

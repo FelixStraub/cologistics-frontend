@@ -5,24 +5,20 @@ import HLService from './services/HLService';
 class Chat extends Component {
 
   async handleEnd({steps, values}) {
+    const hlService = new HLService();
     if (values[0] === 'OFFER') { // always done by ID0
-      console.log(values);
       const creatorId = "ID0";
-      const hlService = new HLService();
-      console.log(values);
-      const res = await hlService.createShipment(creatorId, "ID2", "Peter", "asdfasdfasdf", "Stuttgart", "Leonberg");
+      const res = await hlService.createShipment(creatorId, "ID2", "Peter", "Stuttgart", "60", "Leonberg");
       const r = await res.json();
       localStorage.setItem("shipmentId", JSON.parse(r.data).id)
 
     } else if (values[0] === 'DELIVER') { // accepting the delivery contract, always done by ID1
-      console.log('delivery');
-      const hlService = new HLService();
       const res = await hlService.updateStatus(localStorage.getItem("shipmentId"), "ID1", "Accepted", "");
-      console.log(res);
       const r = await res.json();
-      console.log(r);
     } else { // mark delivery as received, always done by ID2
-      console.log('marked receivedc')
+      const res = await hlService.updateStatus(localStorage.getItem("shipmentId"), "ID2", "Approved", "");
+      const r = await res.json();
+      console.log(r)
     }
     console.log(values);
   }
