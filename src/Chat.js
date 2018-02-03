@@ -8,7 +8,7 @@ class Chat extends Component {
     if (values[0] === 'OFFER') {
       console.log(values);
       const creatorId = "ID0";
-      const hlService = new HLService("f24fe7fa107f250f2644cd3167478388");
+      const hlService = new HLService();
       console.log(values);
       const res = await hlService.createShipment(creatorId, "ID1", "Peter", "asdfasdfasdf", "Stuttgart", "Leonberg");
       console.log(res);

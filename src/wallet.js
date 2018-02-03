@@ -3,8 +3,6 @@ import {Card, CardContent, CardMedia} from "material-ui";
 
 export default class wallet extends Component {
 
-  amount = 5;
-
   render() {
     return (
       <div className="wallet">
@@ -14,7 +12,7 @@ export default class wallet extends Component {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <h3>Your Balance: {this.amount}
+            <h3>Your Balance: {this.props.balance}
               <small>col</small>
             </h3>
           </CardContent>
