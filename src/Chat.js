@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import ChatBot from 'react-simple-chatbot';
-
+import HLService from './services/HLService';
 
 class Chat extends Component {
-  handleEnd({steps, values}) {
+
+  async handleEnd({steps, values}) {
     if (values[0] === 'OFFER') {
-      console.log('create offer')
+      console.log(values);
+      const creatorId = "id0";
+      const hlService = new HLService("16c5a34cb98325b55901d06a3eb16ce1");
+      const res = await hlService.createShipment(creatorId, "id1", values[3], values[1], "Stuttgart");
+      console.log(res);
+
     } else if (values[0] === 'DELIVER') {
       console.log('delivery')
     } else {

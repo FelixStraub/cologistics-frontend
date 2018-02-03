@@ -8,9 +8,7 @@ export default class main extends Component {
     return (
       <main>
         <Switch>
-          <Route exact path='/' component={App}/>
-          <Route exact path='/1' component={App}/>
-          <Route exact path='/2' component={App}/>
+          <Route exact path='/id/:id' component={App}/>
           <Route path='*' component={Error}/>
         </Switch>
       </main>

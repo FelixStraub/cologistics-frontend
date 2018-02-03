@@ -13,7 +13,7 @@ import Chat from "./Chat";
 var userAvatar = require('./assets/user.svg');
 
 const style = {
-  'justify-content': 'space-between'
+  'justifyContent': 'space-between'
 };
 
 class App extends Component {
@@ -83,6 +83,7 @@ class App extends Component {
   };
 
   render() {
+    const currentUser = this.props.match.params.id;
     const {open} = this.state;
     return (
       <div className="App">
@@ -99,7 +100,7 @@ class App extends Component {
         <Wallet/>
         <ThemeProvider theme={this.theme}>
           <Chat userAvatar={userAvatar}
-                name={'Jeff'}/>
+                name={'Jeff'} currentUserId={currentUser}/>
         </ThemeProvider>
         <Snackbar
           anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
