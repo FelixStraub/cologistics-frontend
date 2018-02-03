@@ -7,6 +7,8 @@ export default class HLService {
     "cache-control": "no-cache"
   };
 
+
+
   getBalance(currentUserId) {
     return this.nonAsyncMakeQueryRequest(this.buildDataForFcn("queryId", [currentUserId]))
   }

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import ChatBot from 'react-simple-chatbot';
 import HLService from './services/HLService';
 
+const SHIPMENT_ID_KEY = "shipmentId";
+
 class Chat extends Component {
 
   async handleEnd({steps, values}) {
@@ -10,13 +12,13 @@ class Chat extends Component {
       const creatorId = "ID0";
       const res = await hlService.createShipment(creatorId, "ID2", "Peter", "Stuttgart", "60", "Leonberg");
       const r = await res.json();
-      localStorage.setItem("shipmentId", JSON.parse(r.data).id)
+      localStorage.setItem(SHIPMENT_ID_KEY, JSON.parse(r.data).id)
 
     } else if (values[0] === 'DELIVER') { // accepting the delivery contract, always done by ID1
-      const res = await hlService.updateStatus(localStorage.getItem("shipmentId"), "ID1", "Accepted", "");
+      const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), "ID1", "Accepted", "");
       const r = await res.json();
     } else { // mark delivery as received, always done by ID2
-      const res = await hlService.updateStatus(localStorage.getItem("shipmentId"), "ID2", "Approved", "");
+      const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), "ID2", "Approved", "");
       const r = await res.json();
       console.log(r)
     }
