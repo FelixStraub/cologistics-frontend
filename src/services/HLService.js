@@ -33,6 +33,7 @@ export default class HLService {
   }
 
   async makeInvokeRequest(data) {
+    console.log(data);
     return fetch('https://hyperledger-api.cfapps.eu10.hana.ondemand.com/invoke', {
       method: 'post',
       body: JSON.stringify(data),
@@ -51,17 +52,17 @@ export default class HLService {
 }
 
 export class Shipment {
-  creatorId = "";
-  carrier = "";
-  recipient = "";
-  retailer = "";
-  price = "";
-  pickupLocation = "";
-  destination = "";
-  contentList = "";
-  space = "";
-  startPoint = "";
-  endPoint = "";
+  creatorId = "1";
+  carrier = "2";
+  recipient = "3";
+  retailer = "4";
+  price = "5";
+  pickupLocation = "6";
+  destination = "7";
+  contentList = "8";
+  space = "9";
+  startPoint = "10";
+  endPoint = "11";
 
   asArray() {
     return [

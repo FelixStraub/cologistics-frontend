@@ -7,9 +7,10 @@ class Chat extends Component {
   async handleEnd({steps, values}) {
     if (values[0] === 'OFFER') {
       console.log(values);
-      const creatorId = "id0";
-      const hlService = new HLService("16c5a34cb98325b55901d06a3eb16ce1");
-      const res = await hlService.createShipment(creatorId, "id1", values[3], values[1], "Stuttgart");
+      const creatorId = "ID0";
+      const hlService = new HLService("f24fe7fa107f250f2644cd3167478388");
+      console.log(values);
+      const res = await hlService.createShipment(creatorId, "ID1", "Peter", "asdfasdfasdf", "Stuttgart", "Leonberg");
       console.log(res);
 
     } else if (values[0] === 'DELIVER') {
