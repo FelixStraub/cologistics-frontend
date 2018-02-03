@@ -8,7 +8,7 @@ class Chat extends Component {
     const hlService = new HLService();
     if (values[0] === 'OFFER') { // always done by ID0
       const creatorId = "ID0";
-      const res = await hlService.createShipment(creatorId, "ID2", "Peter", "Stuttgart", "60", "Leonberg");
+      const res = await hlService.createShipment(creatorId, "ID2", "Peter", "Stuttgart", "60", "Leonberg", values[1]);
       const r = await res.json();
       localStorage.setItem("shipmentId", JSON.parse(r.data).id)
 
