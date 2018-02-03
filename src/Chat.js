@@ -8,17 +8,18 @@ class Chat extends Component {
 
   async handleEnd({steps, values}) {
     const hlService = new HLService();
+    const CREATOR_ID = "ID0";
+    const CARRIER_ID = "ID1";
     if (values[0] === 'OFFER') { // always done by ID0
-      const creatorId = "ID0";
-      const res = await hlService.createShipment(creatorId, "ID2", "Peter", "Stuttgart", "60", "Leonberg", values[1]);
+      const res = await hlService.createShipment(CREATOR_ID, CREATOR_ID, "ID4", "Stuttgart", "60", "Leonberg", values[1]);
       const r = await res.json();
       localStorage.setItem(SHIPMENT_ID_KEY, JSON.parse(r.data).id)
 
     } else if (values[0] === 'DELIVER') { // accepting the delivery contract, always done by ID1
-      const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), "ID1", "Accepted", "");
+      const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), CARRIER_ID, "Accepted", "");
       const r = await res.json();
-    } else { // mark delivery as received, always done by ID2
-      const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), "ID2", "Approved", "");
+    } else { // mark delivery as received, always done by ID0
+      const res = await hlService.updateStatus(localStorage.getItem(SHIPMENT_ID_KEY), CREATOR_ID, "Approved", "");
       const r = await res.json();
       console.log(r)
     }
