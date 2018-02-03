@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ChatBot from 'react-simple-chatbot';
 
 
-class CreateOffer extends Component {
+class Chat extends Component {
   handleEnd({steps, values}) {
     if (values[0] === 'OFFER') {
       console.log('create offer')
@@ -26,15 +26,15 @@ class CreateOffer extends Component {
         steps={[
           {
             id: '1',
-            message: 'Hi Jeff, whats up?',
+            message: `Hi ${this.props.name} whats up?`,
             trigger: 'actions'
           },
           {
             id: 'actions',
             options: [
-              {value: 'OFFER', label: '📦 Transport', trigger: 'create_offer'},
-              {value: 'DELIVER', label: '🚚 Deliver', trigger: 'delivery'},
-              {value: 'RECEIVED', label: '✅ Received', trigger: 'pick_item'},
+              {value: 'OFFER', label: 'I need shipping', trigger: 'create_offer'},
+              {value: 'DELIVER', label: 'I\'m about to deliver items', trigger: 'delivery'},
+              {value: 'RECEIVED', label: 'I have received my delivery', trigger: 'pick_item'},
             ],
           },
           {
@@ -55,8 +55,8 @@ class CreateOffer extends Component {
           {
             id: 'shipping_items',
             options: [
-              {value: 'item_a', label: '30 breaks to Stuttgart', trigger: '2'},
-              {value: 'item_b', label: '1 Pizza from Feuerbach to Ludwigsburg', trigger: '2'}
+              {value: 'item_a', label: '30 breaks from Leonberg to Vaihingen', trigger: '2'},
+              {value: 'item_b', label: '1 Pizza from Vaihingen to Heslach', trigger: '2'}
             ],
           },
           {
@@ -138,7 +138,7 @@ class CreateOffer extends Component {
           },
           {
             id: '3',
-            message: 'Thanks, the carrier was paid 300x',
+            message: 'Thanks, the carrier was paid the 60col',
             end: true
           }
         ]}
@@ -147,4 +147,4 @@ class CreateOffer extends Component {
   }
 }
 
-export default CreateOffer;
+export default Chat;

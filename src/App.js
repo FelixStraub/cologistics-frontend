@@ -8,10 +8,13 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Wallet from "./wallet";
 import {ThemeProvider} from 'styled-components';
-import CreateOffer from "./CreateOffer";
-
+import Chat from "./Chat";
 
 var userAvatar = require('./assets/user.svg');
+
+const style = {
+  'justify-content': 'space-between'
+};
 
 class App extends Component {
   state = {
@@ -84,18 +87,19 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar position="static">
-          <Toolbar>
-            <IconButton color="inherit" aria-label="Menu">
-              <MenuIcon/>
-            </IconButton>
+          <Toolbar style={style}>
             <Typography type="title" color="inherit">
               Cologistics
             </Typography>
+            <IconButton color="inherit" aria-label="Menu">
+              <MenuIcon/>
+            </IconButton>
           </Toolbar>
         </AppBar>
         <Wallet/>
         <ThemeProvider theme={this.theme}>
-          <CreateOffer userAvatar={userAvatar}/>
+          <Chat userAvatar={userAvatar}
+                name={'Jeff'}/>
         </ThemeProvider>
         <Snackbar
           anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
