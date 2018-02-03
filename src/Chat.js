@@ -39,7 +39,7 @@ class Chat extends Component {
         steps={[
           {
             id: '1',
-            message: `Hi ${this.props.name} whats up?`,
+            message: `Hi, whats up?`,
             trigger: 'actions'
           },
           {
@@ -117,7 +117,7 @@ class Chat extends Component {
           },
           {
             id: 'offer_selected',
-            message: '{previousValue}: Are you sure?',
+            message: '{previousValue}col Are you sure?',
             trigger: 'offer_selected_confirm'
 
           },
