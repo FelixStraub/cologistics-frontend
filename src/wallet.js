@@ -16,9 +16,11 @@ export default class wallet extends Component {
               <div>
                 Balance: <strong>{this.props.balance}col</strong>
               </div>
-              <div>
-                Awaiting 2 shipments
-              </div>
+              {this.props.currentUserId === 'ID2' && (
+                <div>
+                  Awaiting 2 shipments
+                </div>
+              )}
             </div>
 
           </CardContent>
