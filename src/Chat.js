@@ -17,7 +17,7 @@ class Chat extends Component {
     } else if (values[0] === 'DELIVER') { // accepting the delivery contract, always done by ID1
       console.log('delivery');
       const hlService = new HLService();
-      const res = await hlService.updateStatus(localStorage.getItem("shipmentId"), "ID1", "accepted", "");
+      const res = await hlService.updateStatus(localStorage.getItem("shipmentId"), "ID1", "Accepted", "");
       console.log(res);
       const r = await res.json();
       console.log(r);
