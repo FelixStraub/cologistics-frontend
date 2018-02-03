@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
-import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import openSocket from 'socket.io-client';
 import Wallet from "./wallet";
 import {ThemeProvider} from 'styled-components';
 import CreateOffer from "./CreateOffer";
 
-const socket = openSocket('http://localhost:3001');
 
 class App extends Component {
   state = {
@@ -70,7 +67,7 @@ class App extends Component {
 
   theme = {
     background: '#f5f8fb',
-    fontFamily: 'Roboto',
+    fontFamily: 'Helvetica Neue',
     headerBgColor: '#3f51b5',
     headerFontColor: '#fff',
     headerFontSize: '15px',
@@ -81,8 +78,6 @@ class App extends Component {
   };
 
   render() {
-    socket.on('timer', timestamp => console.log(timestamp));
-    socket.emit('subscribeToTimer', 1000);
     const {open} = this.state;
     return (
       <div className="App">

@@ -14,7 +14,7 @@ export default class wallet extends Component {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <h3>Current Amount: {this.amount}
+            <h3>Your Balance: {this.amount}
               <small>col</small>
             </h3>
           </CardContent>
