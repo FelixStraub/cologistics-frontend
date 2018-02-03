@@ -1,6 +1,6 @@
 export default class HLService {
 
-  chaincodeId = "f24fe7fa107f250f2644cd3167478388";
+  chaincodeId = "0f64cfefa65b1e87142707d14220eff6";
   headers = {
     'apikey': 'XdNa4CgwYYgnoW95uBW38jQOIlSwOCRVtiMoA5HIPsZmtj1p6TA8JStkJ0Kc75CMSYScjFoUaCpo94Y8oXGo4UXN24i3G3QBX2xp8xBUop1HcB78FQg8urrhr73KKDGknGJhp2t5YxdMzwCUx5LmsEkmN3aPZB5yioxRv3qQuDPKaliTaXKeBaKW38D2mCLteKxd39vUYRquTa7J86vu0d7DZOHnoeVOdIfhlW8jiKgB6EEfjLoA5WR517lpL5y356ZqrnwPhdsK1rWnxwExrwux4RE7u7Tlr8D2DXbvsCobt115P4tXcRcpDBvHPLe3J7zJv56Et4sshi4OJVWEppUxhRGgN2TyFOa24qLVAe3USI91kJuaEQ8jq8NWeZlHIeUaPAihtkoxpyW4pjspQbrdpDkmqK4GuIAjtiw51oBPeQHde6WpiT1xjIFezltNJgGPNSdh7SA6Jrht0NojBAAbi0osd0xQblKLFNQOdh40BjhTwuFL66N6IYOhOoOz',
     "content-type": "application/json",
@@ -25,6 +25,7 @@ export default class HLService {
   }
 
   async updateStatus(shipmentId, carrier, status, space) {
+    console.log([shipmentId, carrier, status, space]);
     return this.makeInvokeRequest("updateStatus", [shipmentId, carrier, status, space])
   }
 
