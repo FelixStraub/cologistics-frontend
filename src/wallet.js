@@ -12,9 +12,15 @@ export default class wallet extends Component {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <h3>Your Balance: {this.props.balance}
-              <small>col</small>
-            </h3>
+            <div>
+              <div>
+                Balance: <strong>{this.props.balance}col</strong>
+              </div>
+              <div>
+                Awaiting 2 shipments
+              </div>
+            </div>
+
           </CardContent>
         </Card>
       </div>
