@@ -67,13 +67,6 @@ class App extends Component {
   render() {
     const currentUser = "ID" + this.props.match.params.id;
     let name = '';
-    if (currentUser === "ID0") {
-      name = 'Alice';
-    } else if (currentUser === "ID1") {
-      name = 'Bob';
-    } else {
-      name = 'Charlie';
-    }
     const {open} = this.state;
     return (
       <div className="App">
@@ -91,7 +84,6 @@ class App extends Component {
                 currentUserId={currentUser}/>
         <ThemeProvider theme={this.theme}>
           <Chat userAvatar={userAvatar}
-                name={name}
                 currentUserId={currentUser}/>
         </ThemeProvider>
         <Snackbar
