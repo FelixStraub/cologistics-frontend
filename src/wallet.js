@@ -20,7 +20,7 @@ export default class wallet extends Component {
                   {this.props.balance == 115 && <strong>355</strong>}
                   {this.props.balance == 175 && <strong>295</strong>}
                   {this.props.balance == 55 && <strong>415</strong>}
-                  {this.props.balance != 115 && <strong>{this.props.balance}</strong>}
+                  {(this.props.balance != 175 && this.props.balance != 115 && this.props.balance != 55)&& <strong>{this.props.balance}</strong>}
                   <small>col</small>
                 </div>
               </h2>
