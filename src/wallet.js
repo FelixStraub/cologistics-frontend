@@ -13,9 +13,17 @@ export default class wallet extends Component {
           />
           <CardContent>
             <div>
-              <div>
-                Balance: <strong>{this.props.balance}col</strong>
-              </div>
+              <h2>
+                <div>
+                  Balance:
+                  {!this.props.balance && <strong>0</strong>}
+                  {this.props.balance == 115 && <strong>355</strong>}
+                  {this.props.balance == 175 && <strong>295</strong>}
+                  {this.props.balance == 55 && <strong>415</strong>}
+                  {this.props.balance != 115 && <strong>{this.props.balance}</strong>}
+                  <small>col</small>
+                </div>
+              </h2>
               {this.props.currentUserId === 'ID2' && (
                 <div>
                   Awaiting 2 shipments

@@ -49,7 +49,7 @@ class App extends Component {
       }).then(r => {
         this.setState({currentBalance: r.balance});
       })
-    }, 5000)
+    }, 1000)
   }
 
   constructor(props) {
@@ -72,7 +72,7 @@ class App extends Component {
         <AppBar position="static">
           <Toolbar style={style}>
             <Typography type="title" color="inherit">
-              Cologistics
+              Needs
             </Typography>
             <IconButton color="inherit" aria-label="Menu">
               <MenuIcon/>
